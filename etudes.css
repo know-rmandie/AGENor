@@ -1,0 +1,98 @@
+/* Eric Meyer's Reset CSS v2.0 - http://cssreset.com */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}
+/* --------------------------------- */
+
+/* mises en forme générales du document */
+body {
+  font-family:sans-serif;
+  font-size:0.9em;
+  width:99.5%;
+  }
+  
+/*** Tableau de suivi ***/  
+/* mise en forme du menu en haut */
+table.texteP8 {width:auto}
+table.texteP8 tbody tr:nth-child(2) td {padding:10px 0 0 0}
+table.texteP8 tbody tr:nth-child(2) input {border:1px solid #bbb;border-bottom:#bbb;background:white;border-radius:6px 6px 0 0;padding:3px;width:75px;margin:0 2px}
+table.texteP8 tbody tr:nth-child(2) input:hover {background:#bbb;color:white}
+
+/* mise en forme du tableau */
+table {width:100%;margin:0}
+#tabEtudes tbody tr:nth-child(2) td {background-color:#bbb;color:white;border:1px solid white;font-size:90%;padding:5px}
+#tabEtudes th {font-style:italic;text-align:right;font-size:90%;background:#bbb;color:white;}
+   /* traitement des groupes */
+.groupe {font-weight:bold;border-top:1px dotted;color:#5B8910}
+.groupe td:nth-child(2) {text-align:left;font-size:90%;padding:7px 0 0 0}
+.groupe td:nth-child(3) {text-align:left;font-size:90%;padding:7px 0 0 0}
+   /* couleur une ligne sur deux */
+.lip {background:#fafafa;font-size:90%;}
+.lii {background:#dadada;font-size:90%;}
+   /* centrage des colonnes 3,4,5 */
+tr.lip td:nth-child(3),tr.lii td:nth-child(3),
+tr.lip td:nth-child(4),tr.lii td:nth-child(4),
+tr.lip td:nth-child(5),tr.lii td:nth-child(5) {text-align:center}
+   /* alignement ? droite colonnes 6,7 */
+tr.lip td:nth-child(6),tr.lii td:nth-child(6),
+tr.lip td:nth-child(7),tr.lii td:nth-child(7),
+tr.lip td:nth-child(8),tr.lii td:nth-child(8) {text-align:right}
+
+/* affichage de l'avancement */
+tr.idee td:first-child , td.idee {background:#5b1;vertical-align:middle;font-size:50%;text-align:center;width:17px}
+tr.projet td:first-child, td.projet {background:#ec0;vertical-align:middle;font-size:50%;text-align:center;width:17px}
+tr.programme td:first-child, td.programme {background:#e90;vertical-align:middle;font-size:50%;text-align:center;width:17px}
+tr.encours td:first-child , td.encours {background:#c00;vertical-align:middle;font-size:50%;text-align:center;width:17px}
+tr.termine td:first-child , td.termine {background:#90f;vertical-align:middle;font-size:50%;text-align:center;width:17px}
+tr.valorise td:first-child , td.valorise {background:#59f;vertical-align:middle;font-size:50%;text-align:center;width:17px}
+tr.nonvalor td:first-child , td.nonvalor {background:black;vertical-align:middle;font-size:50%;text-align:center;width:17px}
+tr.abandon td:first-child , td.abandon {background:#555;vertical-align:middle;font-size:50%;text-align:center;width:17px}
+@keyframes blinking {
+	0% {opacity:1}
+	50%  {opacity:0.2}
+	100% {opacity:1}
+	}
+td[onclick]:first-child {cursor:pointer;
+-webkit-animation-name:blinking;-moz-animation-name: blinking;animation-name: blinking;
+-webkit-animation-duration:3s;-moz-animation-duration:3s;animation-duration:3s;
+-webkit-animation-iteration-count:infinite;-moz-animation-iteration-count:infinite;animation-iteration-count:infinite;
+-webkit-animation-play-state:running;-moz-animation-play-state:running;animation-play-state:running;
+}
+/* le footer de Fouad part 1 */
+#ReportFooter, .ReportFooter {background:#bbb;color:white;font-style:italic;text-align:right;font-size:90%}
+#ReportFooter a , .ReportFooter a {color:white;font-style:italic;text-align:right;font-size:90%}
+
+/* le footer de Fouad part 2 */
+#tabEtudes tr:nth-last-child(1) td {font-style:italic;text-align:right;font-size:90%;background:#bbb;color:white}
+
+/* la l?gende */
+#legende td {vertical-align:middle}
+/* #legende td:nth-child(3n+1) {width:15px} */
+#legende td:nth-child(3n+2) {padding:0 0 0 3px}
+#legende td:nth-child(3n+3) {font-weight:bold;font-size:110%}
+
+/*** Partie édition ***/
+#Layer1 {background:#eee;padding:0 1px 0 2px}
+#Layer1 p,td {font-size:90%}
+
+#Layer1 form.texteP p {font-size:80%}
+#Layer1 form.texteP p input {width:60}
+
+#Layer1 h2 {font:bold 120% serif;margin:2px 0 2px 0;border-top:1px dotted}
+
+#Layer1 table.texteP {width:auto}
+#Layer1 table.texteP td:first-child {width:50px;vertical-align:top;}
+#Layer1 table.texteP td:nth-child(2) {width:50px}
+#Layer1 table.texteP td:nth-child(3) {width:50px}
+
+#Layer1 table.texteP  {width:100%}
+#Layer1 table.texteP table.texteP td {text-align:right}
+#Layer1 table.texteP table.texteP td:nth-child(4) {text-align:left;padding:0 0 0 3px}
+#Layer1 table.texteP table.texteP td:nth-child(2) {text-align:left;padding:0 0 0 3px}
+/*#Layer1 table.texteP table.texteP td:nth-child(2n+1) {width:160px;font-size:90%}*/
+#Layer1 table.texteP tr:first-child td {border-top:1px dotted lightgray}
+#Layer1 table.texteP table.texteP input {width:70}
+
+#Layer1 table.avancement  {width:100%; vertical-align:center}
+#Layer1 table.avancement td {text-align:right}
+
+#Layer1 textarea {font-family:serif;font-size:110%}
+#Layer1 input {font-size:100%}
