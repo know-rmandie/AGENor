@@ -1,0 +1,38 @@
+.data, .data table {
+    margin: 0 !important
+}
+
+table {
+    max-width: 100%
+}
+
+.name {
+    color: whitesmoke
+}
+
+header, footer, th, .banner {
+    background: #480 !important
+}
+
+.anchor a {
+    border-left-color: #590!important
+}
+
+.wrapper h1, .wrapper h2, .wrapper h3, .wrapper a {
+    color: #480 !important
+}
+
+.wrapper {
+    padding: 58px 1em !important;
+}
+
+h1 {
+    padding: 1em 0 !important
+}
+
+code, pre {
+    background: #ddd;
+    color: black !important;
+    padding: .25em;
+    font-family: monospace
+}

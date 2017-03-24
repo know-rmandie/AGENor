@@ -1,0 +1,116 @@
+﻿<span class="spacer"></span>
+<form action="excel.php" method="post" name="export_excel" id="export_excel" target="_blank">
+	<table class="form">
+		<tr>
+			<td>Gestionnaire DREAL : </td>
+			<td>
+				<input name="Excel_dreal" type="text" id="Excel_dreal" Title="Egal ou Contient">
+			</td>
+		</tr>
+		<tr>
+			<td>Service (DREAL, DDTM ..): </td>
+			<td>
+				<input name="Excel_service" type="text" id="Excel_service" Title="Egal ou Contient">
+			</td>
+		</tr>
+		<tr>
+			<td>BOP : </td>
+			<td>
+				<input name="Excel_bop" type="text" id="Excel_bop" Title="Egal ou Contient">
+			</td>
+		</tr>
+		<tr>
+			<td>Pilotage Service (DDTM, DREAL): </td>
+			<td>
+				<input name="Excel_pilotage_ddtm" type="text" id="Excel_pilotage_ddtm" Title="Egal ou Contient">
+			</td>
+		</tr>
+		<tr>
+			<td>Titre : </td>
+			<td>
+				<input name="Excel_titre" type="text" id="Excel_titre" Title="Egal ou Contient">
+			</td>
+		</tr>
+		<tr>
+			<td>Année de programmation : </td>
+			<td>
+				<input class="short-text" name="Excel_annee" type="text" id="Excel_annee" Title="Egal ou Contient">
+			</td>
+		</tr>
+		<tr>
+			<td>Avancement :</td>
+			<td>
+				<select name="Excel_avanc" size="1" id="Excel_avanc">
+					<option value="">Avancement</option>
+					<option value="idee">Idée</option>
+					<option value="projet">Projet</option>
+					<option value="programmee">Programmée</option>
+					<option value="en_cours">En cours</option>
+					<option value="terminee">Terminée</option>
+					<option value="valorisee">Valorisée</option>
+					<option value="abandonnee">Abandonnée</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>Thématique : </td>
+			<td>
+				 <select name="Excel_thematiques" size="1" id="Excel_thematiques" title="Sélectionnez votre thématique"></select>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" class="center">
+				<input name="Excel" type="submit" id="Excel" value="Voir dans un tableur">
+				<input name="Choisir_champ" type="button" id="Choisir_champ" value="Passer au mode personnalisé" onclick="affiche_Excel_personnalise();" Title="Cliquer ici pour choisir les colonnes à exporter">
+			</td>
+		</tr>
+	</table>
+	<span class="spacer"></span>
+	<div id="mode_edition"><h4>Tous les champs de la base seront importés dans le tableur. Activer le mode <i>personnalisé</i> pour sélectionner des champs particuliers</h4></div>
+	<div id="Excel_personnalise" style="visibility:hidden"></div>
+
+</form>
+<script>
+    function affiche_case_select_personnalisee(nom_liste_personnalisee) {
+		maliste_personnalisee = mes_champs_excel[nom_liste_personnalisee];
+		
+		text  ='<div class="panneau panneau-masque" id="panneau-Excel_personnalise_'+ ma_liste+'" style="overflow: hide;">';
+		text +="<p>&nbsp; </p>";
+		text +="<h4>"+mes_libelles_excel[nom_liste_personnalisee]+ "</h4>";
+		text +="</br>";
+		text +='<table class="form">';
+		mes_cases=maliste_personnalisee.split(",");
+		for (i = 0; i < mes_cases.length; i++) {
+			text +=  '<tr><td>'+mes_cases[i] + '</td><td><input type="checkbox" name="mes_cases[]"  value="'+mes_cases[i]+'"></td></tr>';
+		}
+		text +="</table></div>";
+		$("#zone_excel_personnalise").append(text);	
+	}
+	function affiche_Excel_personnalise() {
+		v_Excel_personnalise=document.getElementById("Excel_personnalise");
+		$("#Excel_personnalise").empty();
+		if (v_Excel_personnalise.style.visibility=="hidden") {
+			v_Excel_personnalise.style.visibility="visible"
+			// fabrication des onglets
+			$("#Excel_personnalise").append('<nav><ul id="zone_nav_excel_personnalise"></ul></nav>');
+			$("#Excel_personnalise").append('<div id="zone_excel_personnalise"><div>');
+			for (ma_liste in mes_champs_excel) {
+				$("#zone_nav_excel_personnalise").append('<li id="Excel_personnalise_'+ ma_liste+'" onclick="javascript:onglet_04(this)"><a>'+mes_libelles_excel[ma_liste]+'</a></li>');
+				}
+			
+			for (ma_liste in mes_champs_excel) {
+			    affiche_case_select_personnalisee(ma_liste);
+				}
+			onglet_04(anc_onglet_04) ;
+			$("#mode_edition").html("<h4>Mode personnalisé activé. Seul les champs cochés seront importés dans le tableur</h4>");
+			$("#Choisir_champ").prop("value","Passer au mode par défaut");
+			$("#Choisir_champ").attr("title","Cliquer ici pour réinitialiser les choix des colonnes(toutes seront importées sur appui sur le bouton 'Voir dans un tableur'");
+			}
+			else {
+			v_Excel_personnalise.style.visibility="hidden";
+			$("#mode_edition").html("<h4>Tous les champs de la base seront importés dans le tableur. Activer le mode <i>personnalisé</i> pour sélectionner des champs particuliers</h4>");
+			$("#Choisir_champ").prop("value","Passer au mode personnalisé");
+			$("#Choisir_champ").attr("title","Cliquer ici pour choisir les colonnes à exporter");
+			}
+	}
+</script>

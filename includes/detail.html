@@ -1,0 +1,98 @@
+<span class="spacer">
+</span>
+<form action="exec_maj.php" method="post" name="exec_maj" id="exec_maj" target="temp_formulaire">
+    <table id="etudeGeneralites">
+        <tr>
+            <td colspan="4">
+                <textarea name="libelle" id="libelle" title="libellé de l'étude" required></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+              <label for="id_etude" title="référence unique dans la base de données">RU :
+                 <input type="text" class="short-text" name="id_etude" id="id_etude" readonly>
+             </label>
+			 <label for="ref_devis" Title="Numéro préprogrammation pour étude CEREMA ou Référence BE / Marché">N°PP ou Contrat:
+				<input class="mid-text" name="ref_devis" type="text" id="ref_devis">
+			 </label>
+				Année&nbsp;:&nbsp;<input type="text" class="short-text" name="annee_pgm" id="annee_pgm" title="Année de programmation" required>
+				MAJ&nbsp;:&nbsp;<input name="date_maj" type="text" class="date" id="date_maj" value="" readonly title="Dernière mise à jour">
+				<!--  onchange="javascript:maj_date_fiche() -->
+                <input class="date" name="date_fiche" type="hidden" id="date_fiche" readonly>
+                <!-- à supprimer -->
+			</span>
+            </td>
+        </tr>
+        <tr class="noprint">
+            <td colspan="4">
+                <select name="sel_theme_princ" size="1" id="sel_theme_princ" onChange="javascript:remplit_theme_princ(this);">
+                <option value="" selected>Thème principal</option>
+             </select>&nbsp;&nbsp;
+                <select name="sel_theme_second" size="1" id="sel_theme_second" onChange="javascript:remplit_theme_second(this);">
+                <option value="" selected>Thème(s) secondaire(s)</option>
+            </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <span class="long-text" name="theme_princ" id="theme_princ"></span>&nbsp;&nbsp;|&nbsp;&nbsp;<span class="long-text" name="theme_second" id="theme_second"></span>
+                <input type="hidden" class="long-text" name="themes" id="themes" title="Thèmes de l'étude" onchange="javascript:init_themes()">
+            </td>
+        </tr>
+        <tr title="Périmètre géographique couvert par l'étude">
+            <td>Zone Géographique</td>
+            <td colspan="3">
+                <input type="text" name="zone_geo" id="zone_geo">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <textarea name="commentaires" id="commentaires"></textarea>
+            </td>
+        </tr>
+    </table>
+    <!-- RUBRIQUES DE LA FICHE ETUDE -->
+    <nav>
+        <ul>
+            <li id="contacts" onclick="javascript:onglet_03(this)"><a>CONTACTS</a></li>
+            <li id="financement" onclick="javascript:onglet_03(this)"><a>BUDGET</a></li>
+            <li id="avancement" onclick="javascript:onglet_03(this)"><a>AVANCEMENT</a></li>
+            <li id="valorisation" onclick="javascript:onglet_03(this)"><a>VALORISER</a></li>
+        </ul>
+    </nav>
+
+    <div class="panneau-masque" id="panneau-financement">
+        <?php include("includes/financement.html"); ?>
+    </div>
+    <div class="panneau-masque" id="panneau-contacts">
+        <?php include("includes/contacts.html"); ?>
+    </div>
+    <div class="panneau-masque" id="panneau-avancement">
+        <?php include("includes/avancement.html"); ?>
+    </div>
+    <div class="panneau-masque" id="panneau-valorisation">
+        <?php include("includes/valorisation.html"); ?>
+    </div>
+    <span class="spacer"></span>
+    <!-- VALIDATION DE LA FICHE -->
+    <div>
+        <table class="form">
+            <tr>
+                <td>
+                    <input name="Envoyer" type="button" id="Envoyer" value="Mettre à jour" disabled onclick="javascript:maj_ajout_fiche()">
+                </td>
+				 <td>
+                    <input name="NlleFiche" type="button" id="NlleFiche" value="Ajouter une étude" onclick="javascript:ajout_abandon_fiche()">
+                </td>
+                <td><!--<input name="EnregistrerNlleFiche" type="button" id="EnregistrerNlleFiche" value="Sauvegarder la nouvelle étude" disabled onclick="javascript:sauvegarder_nlle_fiche()">--></td>
+			</tr>
+				<td colspan=3>
+                    <input name="T_utilisateur" type="text" id="T_utilisateur" value="" readonly title="Nom utilisateur autorisé à mettre à jour">&nbsp;
+                    <input name="T_service" type="text" id="T_service" value="" readonly title="Service d'appartenance de l'utilisateur autorisé à mettre à jour">
+                </td>
+            <tr>
+
+            </tr>
+        </table>
+    </div>
+</form>

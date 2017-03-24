@@ -1,0 +1,20 @@
+site_name: documentation AGENor
+docs_dir: doc
+site_dir: public
+site_url: https://know-rmandie.gitlab.io/AGENor
+repo_url: https://framagit.org/outils-CT/suivi-des-etudes
+repo_name: framagit
+site_author: S.Comte, F.Gafsi
+google_analytics: ['UA-109815-13', 'gitlab.com']
+pages:
+- Accueil: index.md
+- Flux de production: flux-production.md
+- Les études: definition-etude.md
+- Fiche étude: fiche-etude.md
+- Base de données: base-de-donnees.md
+- Rapports: rapports.md
+- Ancienne base: database.md
+- Thésaurus: thesaurus.md
+- Liste des bop: liste-bop-etudes.md
+theme: material
+extra_css: [agenor.css]

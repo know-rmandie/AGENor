@@ -1,0 +1,118 @@
+<span class="spacer"></span>
+<h4>BOP</h4>
+<table class="form">
+    <tr>
+        <td>Budget</td>
+        <td>
+            <select name="bop" size="1" id="bop" onChange="javascript:choix_gestionnaire();">
+                <option value="" selected>Choisir dans la liste</option>
+                <optgroup label="SDTMI">
+                    <option value="EGP"> EGP</option>
+                    <option value="GUT"> GUT</option>
+                    <option value="IST IR" selected> IST IR</option>
+                    <option value="PDMI"> PDMI</option>
+                    <option value="PPBE"> PPBE</option>
+                </optgroup>
+                <optgroup label="SECLAD">
+                    <option value="AUHP"> AUHP</option>
+                    <option value="CRC"> CRC</option>
+                    <option value="ECAM"> ECAM</option>
+                    <option value="HL"> HL</option>
+                    <option value="IE"> IE</option>
+                    <option value="QC"> QC</option>
+                    <option value="UAP"> UAP</option>
+                    <option value="UTAH"> UTAH</option>
+                </optgroup>
+                <optgroup label="SRE">
+                    <option value="EB"> EB</option>
+                    <option value="PEB"> PEB</option>
+                </optgroup>
+                <optgroup label="SRI">
+                    <option value="Barnier"> Barnier</option>
+                    <option value="PR"> PR</option>
+                </optgroup>
+                <optgroup label="SSTR">
+                    <option value="OLSR"> OLSR</option>
+                    <option value="SCR"> SCR</option>
+                </optgroup>
+                <optgroup label="Tous gestionnaires">
+                    <option value="Bruit"> Bruit</option>
+                    <option value="CPPEEDDM"> CPPEEDDM</option>
+                    <option value="FNADT"> FNADT</option>
+                    <option value="env D"> env D</option>
+                    <option value="Régie"> Régie</option>
+                    <option value="pas de financement"> pas de financement</option>
+                    <option value="PP60"> PP60</option>
+                </optgroup>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>Action / sous-action</td>
+        <td>
+            <select name="ligne_budgetaire_lb" size="1" id="ligne_budgetaire_lb">
+                <option selected value="">Ligne Budgétaire</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>Gestionnaire</td>
+        <td>
+            <input class="short-text" name="dreal" type="text" id="dreal">
+        </td>
+    </tr>
+</table>
+<h4>Montants</h4>
+<table title="Montant xxxxxxx.xx & Date jj-mm-aaaa" class="form">
+    <tr>
+        <td></td>
+        <td align="center">MONTANT en €</td>
+        <td align="center">DATE</td>
+    </tr>
+    <tr>
+        <td>Demandé </td>
+        <td>
+            <input class="number" name="montant_demande_lb" type="text" id="montant_demande_lb">
+        </td>
+        <td >
+            <input class="date" name="date_demande_lb" type="text" id="date_demande_lb">
+        </td>
+    </tr>
+    <tr>
+        <td>Autorisé ou Programmé</td>
+        <td>
+            <input class="number" name="montant_autorisation_lb" type="text" id="montant_autorisation_lb">
+        </td>
+        <td>
+            <input class="date" name="date_autorisation_lb" type="text" id="date_autorisation_lb">
+        </td>
+    </tr>
+    <!--
+    <tr>
+        <td>Total Devis Accepté</td>
+        <td align="center">
+            <input class="number" name="montant_devis_lb" type="text" id="montant_devis_lb" style="TEXT-ALIGN:Right" size="9" maxlength="10">
+        </td>
+        <td align="center">
+            <input class="number" name="date_devis_lb" type="text" id="date_devis_lb" style="TEXT-ALIGN:Center" size="7" maxlength="10">
+        </td>
+    </tr>-->
+    <tr>
+        <td>Commandé / Engagé</td>
+        <td>
+            <input class="number" name="montant_engagement_lb" type="text" id="montant_engagement_lb">
+        </td>
+        <td>
+            <input class="date" name="date_engagement_lb" type="text" id="date_engagement_lb">
+        </td>
+    </tr>
+    <tr>
+        <td>Payé / Mandaté</td>
+        <td>
+            <input class="number" name="montant_facturation_lb" type="text" id="montant_facturation_lb">
+        </td>
+        <td>
+            <input class="date" name="date_facturation_lb" type="text" id="date_facturation_lb">
+        </td>
+    </tr>
+</table>

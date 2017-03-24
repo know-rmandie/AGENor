@@ -1,0 +1,42 @@
+<span class="spacer"></span>
+<h4>Pilotage</h4>
+<table class="form">
+	<tr>
+		<td>Direction</td>
+		<td>
+			<!-- <input class="short-text" name="service" type="text" id="service" required> -->
+			<select name="service" size="1" id="service" onChange="javascript:remplit_structures();" required >
+                <option selected value="">Nom de la structure</option>
+            </select>
+		</td>
+	</tr>
+	<tr>
+		<td>Equipe de pilotage</td>
+		<td>
+			<input name="pilotage_ddtm" type="text" id="pilotage_ddtm" required title="Service (Direction), unité, bureau,..">
+		</td>
+	</tr>
+	<!--Attention l'id pilotage_ddtm est utilisé dans maj.js-->
+	<tr>
+		<td title="Nom du contact dans le service en charge du pilotage de l'étude (chef de projet)">Nom du contact</td>
+		<td>
+			<input name="pil_contact" type="text" id="pil_contact">
+		</td>
+	</tr>
+
+</table>
+<h4>Réalisation</h4>
+<table class="form">
+	<tr>
+		<td>Bureau d'Etudes</td>
+		<td>
+			<input name="nom_bureau_etude" type="text" id="nom_bureau_etude" title="Bureau d'études mandaté (Sigle Division CETE, nom BE privé, ..">
+		</td>
+	</tr>
+	<tr>
+		<td>Contact BE</td>
+		<td>
+			<input name="contact_bureau_etude" type="text" id="contact_bureau_etude" title="Contact bureau d'études mandaté">
+		</td>
+	</tr>
+</table>

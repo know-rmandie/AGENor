@@ -1,0 +1,26 @@
+<span class="spacer"></span>
+<table class="form">
+	<tr>
+		<td>identifiant</td>
+		<td>
+			<input name="login" type="text" id="login" onclick="javascript:init_autorisation();">
+		</td>
+	</tr>
+	<tr>
+		<td>mot de passe</td>
+		<td>
+			<input name="mdp" type="password" id="mdp">
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" class="center">
+			<input name="s-authentifier" type="submit" id="s-authentifier" value="S'authentifier" onclick="javascript:get_autorisation()">
+		</td>
+	</tr>
+</table>
+<span class="spacer"></span>
+	<div id="message_auth" name="message_auth">
+
+	</div>
+<input type=hidden id="T_autorisation" name="T_autorisation">
+<iframe name="temp_formulaire" id="temp_formulaire" style="display:none" width="0" height="0"></iframe>

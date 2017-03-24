@@ -1,0 +1,10 @@
+image: icereed/mkdocs-material
+
+pages:
+   script:
+   - mkdocs build --clean
+   artifacts:
+      paths:
+      - public
+   only:
+   - documentation

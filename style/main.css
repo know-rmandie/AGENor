@@ -1,0 +1,701 @@
+    /* normalize.css 4.1.1 */
+
+
+/* L A Y O U T */
+
+
+/* PM : structure de la page
+body
+div #.container
+header #.cadre-bandeau-haut
+section #.cadre-centre
+   section #.cadre-interne-gauche
+   section #.cadre-interne-droit
+footer #.cadre-bandeau-bas
+*/
+
+
+/* Impression */
+
+@media print {
+    .printfiche #panneau-myEtude div:last-child, .printfiche .noprint {
+        display: none !important;
+    }
+    .printfiche .fin_impression_fiche {
+        display: none !important;
+    }
+    .printfiche input, .printfiche textarea, .printfiche select {
+        border: none !important;
+        border-bottom: .5px solid lightgray !important
+    }
+    /* à remplacer par #sel_theme (ligne contenant ces commandes) */
+    .printfiche #sel_theme_princ, .printfiche #sel_theme_second {
+        display: none !important;
+    }
+}
+
+html, body, header, section, footer, div {
+    box-sizing: border-box;
+}
+
+body {
+    margin: -2vh 0 0 0;
+}
+
+header, section, footer, div {
+    overflow: hidden
+}
+
+h4 {
+    margin: 4px 0 2px 0;
+}
+
+header {
+    padding: 0;
+    height: 12vh;
+    max-height: 12vh;
+    vertical-align: top;
+}
+
+[class*="myselect-"]:first-child {
+    margin: 0;
+    padding: 12px 6px;
+    line-height: 5vh;
+}
+
+.cadre-centre {
+    height: 84vh;
+}
+
+.cadre-centre section {
+    vertical-align: top;
+}
+
+.cadre-interne-gauche .panneau {
+    height: 81vh;
+}
+
+.panneau iframe {
+    border: none;
+    height: 100%;
+    width: 100%
+}
+
+.cadre-interne-droit>nav {
+    overflow: hidden
+}
+
+.cadre-interne-droit>div div {
+    padding: 0 5px;
+}
+
+.cadre-centre>.panneau {
+    padding: 0 5px;
+    overflow: hidden;
+}
+
+#tHeadContainer {
+    overflow: hidden;
+    height: 5vh;
+    padding-right: 18px;
+    z-index: 5;
+}
+
+#tBodyContainer {
+    height: 81vh;
+    overflow-y: scroll;
+    z-index: 1;
+}
+
+#etudeGeneralites {
+    width: 100%
+}
+
+#etudeGeneralites tr:first-child textarea {
+    text-align: center;
+    font-weight: bold
+}
+
+footer {
+    position: relative;
+    height: 4vh;
+}
+
+footer div {
+    display: inline-block;
+    padding: 4px 0px;
+    margin: 0 1em;
+    padding: 8px 0;
+}
+
+footer div {
+    float: right
+}
+
+footer div:first-child {
+    float: unset;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+table {
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    padding: 5px;
+}
+
+#circe, #contact_comite, #impression_fiche, #impression_tableau {
+    float: right
+}
+
+#impression_fiche, #impression_tableau {
+    padding: 1px 4px;
+}
+
+.fin_impression_fiche {
+    float: right;
+    display: none;
+}
+
+#panneau-monchoix, #panneau-madotation {
+    overflow: hidden
+}
+
+#scrollTableContainer,
+/* tableau de données */
+
+
+/* Le tableau des études est affiché à la fois dans la div tHeadContainer et dans la div tBodyContainer
+- tHeadContainer servira à afficher l'entête fixe.
+Pour que les largeurs de largeur soient identique, l'ensemble de la table est copiée
+On affiche qu'une fenêtre de 30px de hauteur
+On cache  le reste
+et on met un padding de 18px pour caler l'entête avec celui dans BodyContainer qui possède un ascenseur
+- tBodyContainer contient le tableau avec une possibilité de scroll
+*/
+
+
+/* format du groupe études */
+
+.cl_groupe_etudes td {
+    border: 0
+}
+
+.cl_groupe_etudes td, .cl_entete_tab_etudes>th:nth-child(1) {
+    visibility: hidden
+}
+
+.cl_groupe_etudes td:nth-child(6), .cl_groupe_etudes td:nth-child(10), .cl_groupe_etudes td:nth-child(11) {
+    visibility: visible
+}
+
+
+/* format de la ligne études
+couleurs différentiées pour les lignes paires et impaires
+changement de couleur au survol de la souris
+*/
+
+.cl_groupe_ligne:hover {
+    box-sizing: border-box;
+}
+
+
+/* masquage des colonnes 2 à 5 et 12 à 14 doivent être masquées
+Sy > à ajuster en fonction de la largeur d'écran? */
+
+#liste_etudes th:nth-child(2), #liste_etudes td:nth-child(2), #liste_etudes th:nth-child(3), #liste_etudes td:nth-child(3), #liste_etudes th:nth-child(4), #liste_etudes td:nth-child(4), #liste_etudes th:nth-child(5), #liste_etudes td:nth-child(5), #liste_etudes th:nth-child(12), #liste_etudes td:nth-child(12), #liste_etudes th:nth-child(13), #liste_etudes td:nth-child(13), #liste_etudes th:nth-child(14), #liste_etudes td:nth-child(14) {
+    display: none;
+}
+
+
+/* alignements dans les colonnes*/
+
+#liste_etudes td:nth-child(10), #liste_etudes th:nth-child(11), #liste_etudes td:nth-child(11) {
+    text-align: right
+}
+
+[class*="cadre-interne-"] {
+    display: inline-block;
+}
+
+[class*="myselect-"] {
+    display: inline;
+}
+
+.panneau-masque {
+    display: none;
+}
+
+.panneau-actif {
+    display: block;
+}
+
+.spacer {
+    display: block;
+    padding: 6px;
+    min-height: 12px;
+}
+
+.right {
+    display: block;
+    text-align: right;
+}
+
+.mid-text, .date {
+    width: 8em;
+}
+
+.number {
+    width: 9em
+}
+
+.short-text {
+    width: 5em;
+}
+
+form table, table.form {
+    max-width: 100%;
+    width: 100%
+}
+
+form table td, table.form td {
+    padding: 3px
+}
+
+form table td:first-child, table.form td:first-child {
+    width: 30%
+}
+
+textarea {
+    max-width: 100%;
+    width: 100%;
+}
+
+#valorisation_comment {
+    max-width: 100%;
+    width: 100%;
+    height: 5em;
+}
+
+#libelle {
+    max-width: 100%;
+    width: 100%;
+    height: 3em;
+}
+
+#commentaires {
+    max-width: 100%;
+    width: 100%;
+    height: 12em;
+}
+
+
+/* F O N T S */
+
+body {
+    padding-top: 0px;
+    font-size: 12px;
+    font-family: verdana;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li a {
+    text-align: center;
+    text-decoration: none;
+}
+
+td {
+    font: normal Geneva, Arial, Helvetica, sans-serif;
+    padding: 6px 10px 6px 10px;
+}
+
+#legende .fa {
+    padding-right: 4px;
+    font-size: 150%
+}
+
+#legende {
+    font-size: 90%;
+    font-style: italic
+}
+
+
+/* Ligne d'entête du tableau à afficher
+dans tHeadContainer */
+
+.cl_entete_tab_etudes {
+    font-weight: bold;
+    color: #4f6b72;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.cl_entete_tab_etudes th {
+    line-height: 48px;
+    padding: 0;
+    margin: 0;
+    vector-effect: rtical-align: middle;
+}
+
+
+/* Ligne d'entête du tableau à afficher dans tBodyContainer
+masquée */
+
+.cl_entete_tab_etudes_bis {
+    display: none;
+}
+
+#liste_etudes th:nth-child(7), #liste_etudes th:nth-child(8) {
+    text-align: left;
+    padding-left: 12px;
+}
+
+tr.cl_groupe_etudes {
+    font-weight: bold;
+}
+
+.short-text, .date {
+    text-align: center;
+}
+
+.number {
+    text-align: right
+}
+
+footer .fa-envelope, footer .fa-bug {
+    font-size: large
+}
+
+.center {
+    text-align: center
+}
+
+
+/* C O L O R S and C O */
+
+*[onclick] {
+    cursor: pointer
+}
+
+[class*="myselect-"]:first-child {
+    background: linear-gradient(170deg, #5B1, #fff 80%);
+    color: #555;
+    font-weight: bold;
+    font-size: 120%;
+}
+
+.cadre-interne-gauche nav li {
+    background-color: rgba(255, 255, 255, .7);
+    border-radius: 4px 4px 0 0;
+    margin: 0 1px;
+    border-top: 1px solid #555;
+    border-left: 1px solid #555;
+    border-right: 1px solid #555;
+}
+
+.cadre-interne-gauche .active {
+    background-color: #eee;
+}
+
+.cadre-interne-droit nav li {
+    background-color: rgba(200, 200, 200, .2);
+    border-radius: 4px 4px 0 0;
+    margin: 0 1px;
+    border-top: 1px solid #555;
+    border-left: 1px solid #555;
+    border-right: 1px solid #555;
+}
+
+.cadre-interne-gauche .active {
+    background-color: #eee;
+}
+
+.cadre-interne-droit .active {
+    background-color: white;
+}
+
+.cadre-interne-gauche nav li:hover {
+    background: linear-gradient(180deg, #5B1, #eee 80%);
+}
+
+.cadre-interne-droit nav li:hover {
+    background: linear-gradient(180deg, #5B1, #fff 80%);
+}
+
+.cadre-interne-gauche .panneau iframe {
+    background-color: #eee;
+}
+
+#liste_etudes td {
+    border-bottom: 1px solid #888;
+    color: #666;
+}
+
+tr.cl_groupe_etudes, tr.cl_groupe_etudes td {
+    background-color: #5B1;
+    color: #eee;
+}
+
+.cadre-interne-droit>div {
+    border-left: .5px solid whitesmoke;
+}
+
+.cadre-interne-droit>div div {
+    background: white;
+}
+
+footer {
+    background: white;
+    box-shadow: -1px 1px 5px gray
+}
+
+.panneau {
+    background-color: #eee;
+    color: #555;
+}
+
+.cl_groupe_ligne:hover {
+    background-color: #fff;
+}
+
+input[type="text"], textarea {
+    background: none;
+    border: .5px dashed #bbb;
+}
+
+input[type="text"]:focus, textarea:focus {
+    background: white;
+    border: 1px solid #ddd;
+}
+
+select {
+    background: none;
+    border: none;
+    border-bottom: 1px solid;
+    margin: 4px 5px;
+    color: #555;
+}
+
+input[type="button"], input[type="submit"] {
+    padding: 1em;
+    border-radius: 6px;
+}
+
+input[disabled] {
+    background: none;
+    color: #aaa;
+}
+
+.pair {
+    background-color: #eee;
+}
+
+.impair {
+    background-color: #eee;
+}
+
+
+/* mise en forme de l'indicateur d'avancement */
+
+#liste_etudes th:nth-child(1), #liste_etudes td:nth-child(1) {
+    padding: 0;
+    text-align: center;
+    max-width: 2em
+}
+
+#liste_etudes td.noBef:before {
+    display: none
+}
+
+#liste_etudes span.fa {
+    font-size: 1.5em;
+    margin: 0;
+    padding: 0 0 0 2px
+}
+
+.fa-lightbulb-o {
+    color: #5B1
+}
+
+.fa-tasks {
+    color: #d90
+}
+
+.fa-eur {
+    color: #f50
+}
+
+.fa-arrow-right {
+    color: #C00
+}
+
+.fa-check {
+    color: #90F
+}
+
+.fa-book {
+    color: #59F
+}
+
+.fa-times {
+    color: #555
+}
+
+footer .fa-envelope:before {
+    color: #59F
+}
+
+footer .fa-bug:before {
+    color: #C00
+}
+
+#pgiForm input, #pgiForm textarea {
+    background-color: white;
+    color: #555
+}
+
+#pGi a {
+    color: white
+}
+
+
+/* IMPRIMABLE */
+
+.printfiche .cadre-interne-gauche, .printfiche footer, .printfiche header, .printfiche nav {
+    display: none;
+}
+
+.printfiche .cadre-interne-droit {
+    transition-property: all;
+    transition-duration: 1s;
+    background: rgb(255, 255, 255);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.printfiche .cadre-interne-droit>div {
+    width: 100%;
+    max-width: 21cm;
+    margin: auto;
+    padding: 0cm .5cm;
+    box-shadow: 2px 2px 8px gray;
+}
+
+.printfiche .panneau-masque {
+    display: none
+}
+
+.printfiche #panneau-myEtude .panneau-masque {
+    display: block
+}
+
+.printfiche .panneau h4 {
+    font-size: 14px;
+    border: solid 1px gray;
+    padding: .25em 1em
+}
+
+.printfiche tr td:nth-child(3) {
+    text-align: right
+}
+
+.printfiche #libelle {
+    font-size: 16px
+}
+
+.printfiche .fin_impression_fiche {
+    display: inline-block;
+    border-radius: 50%;
+    padding: 2px 5px;
+}
+
+.fin_impression_fiche:hover {
+    background: linear-gradient(180deg, #5B1, #eee 80%);
+}
+
+.fin_impression_fiche i {
+    color: gray;
+}
+
+.fin_impression_fiche:hover i {
+    color: black;
+}
+
+
+/* R E S P O N S I V E */
+
+
+/* Larger than mobile */
+
+@media (min-width: 400px) {}
+
+
+/* Larger than phablet */
+
+@media (min-width: 550px) {}
+
+
+/* smaller than tablet */
+
+@media (max-width: 750px) {}
+
+
+/* Larger than tablet */
+
+@media (min-width: 750px) {
+    header {
+        height: 9vh;
+        max-height: 9vh;
+    }
+    .cadre-centre {
+        height: 87vh;
+    }
+    .cadre-interne-gauche .panneau {
+        height: 83vh;
+    }
+}
+
+
+/* Larger than desktop */
+
+@media (min-width: 1000px) {
+    .cadre-interne-gauche {
+        width: 60%;
+    }
+    .cadre-interne-droit {
+        width: 39%;
+    }
+    /* Larger than Desktop HD */
+    @media (min-width: 1200px) {
+        header {
+            height: 5vh;
+            max-height: 5vh;
+        }
+        .cadre-centre {
+            height: 91vh;
+        }
+        .cadre-interne-gauche .panneau {
+            height: 88vh;
+        }
+    }
