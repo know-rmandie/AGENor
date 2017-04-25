@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <?php
 	require_once("connexion.php");
 	$etudes=new MesEtudes;
@@ -193,7 +193,6 @@
 				selected_ligne(ligne);
 				}
 
-
 			function displayVals() {
 				//var nom_bop = $("#select_bop").val() ? $("#select_bop").val():''; // valeur dans le select BOP
 				var nom_bop =""; //menu déroulant BOP supprimé
@@ -242,12 +241,12 @@
 				 selectBop.empty();
 				 selectBop.append('<option selected value="">Liste des BOP</option>');
 				 for(var key in liste_budgets) {
-					montext=key  +' - ' + liste_budgets[key][0];
-					montext = (montext.length>30)?montext.substring(0, 30)+'..':montext;
+					montext = key  + ' - ' + liste_budgets[key][0];
+					montext = (montext.length>45)?montext.substring(0, 45)+'...':montext;
 					selectBop.append('<option value="'+key+'">'+ montext+'</option>');
 					}
-				 selectBop.append('<option value="autre">Autre</option>');
-				 selectBop.append('<option value="pas de financement">Pas de financement</option>');
+				 selectBop.append('<option value="autre">Autre (Fnadt, Feder, hors gestion DREAL...)</option>');
+				 selectBop.append('<option value="pas de financement">financement à trouver</option>');
 			}
 
 			function remplit_action_bop(o){
@@ -406,7 +405,7 @@
 			<span onclick="filtre_avanct('abandonnee')"><i class="fa fa-times"></i>abandonnée |</span>
 			<span onclick="filtre_avanct('')"><i class="fa fa-hand-paper-o"></i>toute</span>
 		</div>
-		<div onclick="javascript:ouvre_fenetre('http://know-rmandie.gitlab.io/AGENor/')">AGENor - v1.3.1-20161202</div>
+		<div onclick="javascript:ouvre_fenetre('http://know-rmandie.gitlab.io/AGENor/')">AGENor - v1.3.2-20170419</div>
 		<div onclick="javascript:ouvre_fenetre('http://intra.dreal-normandie.e2.rie.gouv.fr/IMG/pdf/membres_du_cotech_etudes.pdf')">Comité des études Normandie</div>
 		<div id="bugReport" class="pgiButton" title="Faites part de vos remarques sur l'outil AGENor"><i class="fa fa-bug"></i></div>
 		<div title="Ecrivez-nous au sujet du programme d'études"><a href="mailto:pascal.capitaine@developpement-durable.gouv.fr?subject=suivi%20des%20etudes"><i class="fa fa-envelope"></i></a></div>

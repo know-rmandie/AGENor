@@ -23,7 +23,7 @@ DECLARE
 	ma_table_B text:='';
 BEGIN
 
---- agenor_test.tableau_format(annee text, dreal text, bop text, service text, pilote text, titre text, avanc text, themes text)
+--- suivi_etudes.tableau_format(annee text, dreal text, bop text, service text, pilote text, titre text, avanc text, themes text)
 --- valeurs possibles pour avancement :
 --- 	abandonnee  	when abandon true
 --- 	valorisee   	when valorisation_url<>'' OR valorisation_comment<>''
@@ -41,7 +41,7 @@ BEGIN
 /*
 
 select 	 *
-	from agenor_test.tableau_format('2016', 'SECLAD', '', '', '', '', '','2')
+	from suivi_etudes.tableau_format('2016', 'SECLAD', '', '', '', '', '','2')
 	as
 	f00(
 	 index text,
@@ -89,7 +89,7 @@ select 	 *
 	end if;
 	sql_global:= sql_annee || ' AND ' || sql_dreal || ' AND ' || sql_bop ||' ';
 	sql_detail:= sql_annee || ' AND ' || sql_dreal || ' AND ' || sql_bop || ' AND ' || sql_service || ' AND ' || sql_pilote || ' AND ' || sql_titre || ' AND ' || sql_themes ||' ';
-    sql_having:= sql_annee || ' AND ' || sql_dreal || ' AND ' || sql_bop || ' AND ' || sql_service || ' AND ' || sql_pilote ||' ';
+        sql_having:= sql_annee || ' AND ' || sql_dreal || ' AND ' || sql_bop || ' AND ' || sql_service || ' AND ' || sql_pilote ||' ';
 
 
 ma_table_B := '
@@ -134,7 +134,7 @@ ma_table_A := '
 		case
 			when montant_dotation isnull then  (bop || '' - '' || ligne_budgetaire_lb|| '' - '' || annee_pgm)::varchar(200)
 		else
-			(bop ||'' - ''|| ligne_budgetaire_lb ||'' - Dotation ''||annee_pgm||'' : ''|| replace(to_char(montant_dotation::integer, ''999,999,999''),'','',''&nbsp;'')::varchar(20) ||'' €'')::varchar(200)
+			(bop || '' - '' || ligne_budgetaire_lb || '' - Dotation '' ||annee_pgm||'' : '' || (montant_dotation::integer) ||'' €'')::varchar(200)
 		end
 		as titre,
 		''''::varchar(30) as service,
@@ -145,7 +145,7 @@ ma_table_A := '
 		replace(to_char(sum(montant_engagement_lb), ''999,999,999''),'','',''&nbsp;'')::varchar(20) as  "montant engagé",
 		''''::varchar(10) as date_maj,
 		''''::varchar(10) as avanc_etude
-	from agenor_test.liste_etudes left join agenor_test.dotation
+	from suivi_etudes.liste_etudes left join suivi_etudes.dotation
 	ON
 	ligne_budgetaire_lb=commentaires_dotation and annee_pgm=annee_dotation
 	WHERE ' || sql_global ||'

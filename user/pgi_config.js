@@ -7,9 +7,9 @@ This is a pretty INSECURE way to make issues sent to your gitlab project. Using 
 var pGi={
 /* G I T L A B repo informations */
    gitlab:"framagit.org",                        // gitlab repo url
-   usgroup:"outils-CT",                            // gitlab username or group name where the project is
-   project:"suivi-des-etudes",               // project id in gitlab - should not contain any dot (. nor "%2E")
-   token:"84AixuCbHNbTx36_gmUw",               // token !WARNING! this_is_your_SECONDARY_gitlab_token_with_ONLY_GUEST_PRIVILEGE
+   usgroup:"know-rmandie",                            // gitlab username or group name where the project is
+   project:"AGENor",               // project id in gitlab - should not contain any dot (. nor "%2E")
+   token:"p9o7Nmsf-RQH9aNuuisC",               // token !WARNING! this_is_your_SECONDARY_gitlab_token_with_ONLY_GUEST_PRIVILEGE
 /* F I E L D S list*/
    form:[
        {name:"titre",type:"text",dest:"title",def:"donnez un titre à votre rapport",req:true,hid:false},

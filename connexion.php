@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 	class MesEtudes {
 		// paramètres de connexion
 		private $_ip_serv;
@@ -13,7 +13,7 @@
 		private $_dotation;
 		private $_droits;
 		private $_etudes;
-		private $_bilan;		
+		private $_bilan;
 		private $_budgets;
 		private $_thematiques;
 		private $_services;
@@ -74,7 +74,7 @@
 			$this->_thematiques=$mes_parametres['thematiques'];
 			$this->_services=$mes_parametres['services'];
 			$this->_id_etude=$mes_parametres['id_etude'];
-			
+
 			$this->_champs_general=$mes_parametres['champs_general'];
 			$this->_champs_financement=$mes_parametres['champs_financement'];
 			$this->_champs_devis=$mes_parametres['champs_devis'];
@@ -83,7 +83,7 @@
 			$this->_champs_avanc_etude=$mes_parametres['champs_avanc_etude'];
 			$this->_champs_avanc_facturation=$mes_parametres['champs_avanc_facturation'];
 			$this->_champs_valorisation=$mes_parametres['champs_valorisation'];
-			
+
 			$this->_liste_champs_etude = $this->_champs_general .",";
 		    $this->_liste_champs_etude .= $this->_champs_financement .",";
 		    $this->_liste_champs_etude .= $this->_champs_devis .",";
@@ -92,19 +92,19 @@
 		    $this->_liste_champs_etude .= $this->_champs_avanc_etude  .",";
 		    $this->_liste_champs_etude .= $this->_champs_avanc_facturation  .",";
 			$this->_liste_champs_etude .= $this->_champs_valorisation ;
-			
+
 			$this->_champs_creation=$mes_parametres['champs_creation'];
-			
+
 			$this->_champ_autorisation=$mes_parametres['champ_autorisation'];
 			$this->_champ_utilisateur=$mes_parametres['champ_utilisateur'];
 			$this->_champ_mdp=$mes_parametres['champ_mdp'];
 			$this->_champ_login=$mes_parametres['champ_login'];
 			$this->_champ_service=$mes_parametres['champ_service'];
-		
+
 			$this->_annee_0=$mes_parametres['annee_0'];
 		}
-		
-		public function get_value($alias) { // Renvoi la valeur de l'alias 
+
+		public function get_value($alias) { // Renvoi la valeur de l'alias
 			return $this->{"_$alias"};
 		}
 	// section fixe - applicable sans modification à tous les projets
@@ -120,22 +120,22 @@
 		public function get_nomtablecomplet($nom_table) { // renvoi le nom réel de la table avec le schéma à partir de son alias
 			return  $this->_schema.'.'.$this->{"_$nom_table"} ;
 		}
-		
+
 		public function get_nom_champ_id_etude() {  // renvoi le nom du champ id_etude
 			return $this->_id_etude ;
 		}
-		
+
 		public function get_message() {  // renvoi le type d'erreur de connexion ou ok
 			return $this->_message;
 		}
-		
+
 		public function exec_requete($sql) {
 			$result = $this->_connexion->prepare($sql) ;
 			$result->execute();
 			return $result ;
 		}
 
-		
+
 		public function get_table($selection,$nom_table,$where) { // récupère la table d'alias $nom_table sur le serveur
 			$result = $this->_message ;
 			if ($this->_conn_ok) {
@@ -152,10 +152,11 @@
 			return $result ;
 		}
 
-		public function affiche_table($selection,$larg_table,$nom_table,$where) { /* affiche le contenu HTML à mettre entre les balises <table> et </table>
-																		 $selection est la liste des champs à prendre
-																		 $where est la condition SQL
-																	  */
+		public function affiche_table($selection,$larg_table,$nom_table,$where) {
+            /* affiche le contenu HTML à mettre entre les balises <table> et </table>
+                $selection est la liste des champs à prendre
+                $where est la condition SQL
+            */
 			$result = $this->get_table($selection,$nom_table,$where) ;
 			if ($result <> $this->_message) {
 				$table='<thead>';
@@ -182,10 +183,11 @@
 			return $table;
 		}
 
-		public function affiche_select($selection,$nom_table,$where) { /* affiche le contenu HTML à mettre entre les balises <select> et </select>
-		                                                                  $selection comprend le value et le libelléprendre
-																		 $where est la condition SQL
-																	  */
+		public function affiche_select($selection,$nom_table,$where) {
+        /* affiche le contenu HTML à mettre entre les balises <select> et </select>
+            $selection comprend le value et le libellé
+            $where est la condition SQL
+			*/
 			$result = $this->get_table($selection,$nom_table,$where) ;
 			if ($result <> $this->_message) {
 				$row = $result->fetch(PDO::FETCH_ASSOC);
@@ -219,7 +221,7 @@
 			;
 			return $sortie;
 		}
-		
+
 		// section suivi des études
 		public function get_etude($id){
 			$result = $this->get_table($this->_liste_champs_etude,"etudes","WHERE ". $this->_id_etude ."=".$id );
@@ -242,7 +244,7 @@
 					} else {
 					$where =' WHERE '.$condition;
 					}
-			$marequete =   "select 	 *
+			$marequete =  "select 	 *
 							as
 							f00(
 							 index text,
@@ -342,7 +344,7 @@
 				}
 			return $result ;
 		}
-		
+
 		public function get_bop() {
 		/*
 		retourne un tableau associatif du type :
@@ -363,33 +365,33 @@
 			$mon_bop="select * from ".$this->get_nomtablecomplet('budgets')." where not action";
 			$montableau="{}";
 			$mes_bop = array();
-			
+
 			if ($this->_conn_ok) {
 				$montableau="{";
 				$result_bop = $this->exec_requete($mon_bop) ;
-				
-				while($row_bop = $result_bop->fetch(PDO::FETCH_ASSOC)) {	
+
+				while($row_bop = $result_bop->fetch(PDO::FETCH_ASSOC)) {
 					$mes_bop[$row_bop['id']]='"'.$row_bop['nom'].'","'.$row_bop['gestionnaire'].'"';
 					}
-				
+
 
 				foreach ($mes_bop as $code => $value) {
 					$detail_bop ="select * from ".$this->get_nomtablecomplet('budgets')." where id like '".$code."%' AND action=true";
 					$result_detail_bop = $this->exec_requete($detail_bop) ;
-					$montableau .=',"'.$code.'":[';	
+					$montableau .=',"'.$code.'":[';
 					$montableau .=$value.',{';
 					while($row_detail_bop = $result_detail_bop->fetch(PDO::FETCH_ASSOC)) {
 						$montableau .=',"'.$row_detail_bop['id'].'":["'.$row_detail_bop['nom'].'","'.$row_detail_bop['gestionnaire'].'"]';
 						} ;
-					$montableau .='}]';	
-				}					
+					$montableau .='}]';
+				}
 				$montableau .='}';
 				$montableau=str_replace("{,","{",$montableau);
-			
+
 			}
-			return $montableau;	
+			return $montableau;
 		}
-		
+
 		public function get_thematiques() {
 		/*
 		retourne un tableau associatif du type :
@@ -408,13 +410,13 @@
 				while($row_themes = $result_themes->fetch(PDO::FETCH_ASSOC)) {
 					$montableau .=',"'.$row_themes['id_theme'].'":"'.$row_themes['theme'].'"';
 					} ;
-				$montableau .='}';	
-				$montableau=str_replace("{,","{",$montableau);	
+				$montableau .='}';
+				$montableau=str_replace("{,","{",$montableau);
 			}
 			return $montableau;
 			//return 	$mes_themes ;
 		}
-	
+
 		public function get_structures() {
 		/*
 		retourne le tableau des directions (structures) :
@@ -433,11 +435,11 @@
 				while($row_structures = $result_structures->fetch(PDO::FETCH_ASSOC)) {
 					$montableau .=',"'.$row_structures['service'].'":"'.$row_structures['service'].'"';
 					} ;
-				$montableau .='}';	
-				$montableau=str_replace("{,","{",$montableau);	
+				$montableau .='}';
+				$montableau=str_replace("{,","{",$montableau);
 			}
 			return $montableau;
-		}	
+		}
 	}
 
 

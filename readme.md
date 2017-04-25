@@ -5,6 +5,10 @@ Cet **outil de suivi des études** a été conçu pour faciliter la programmatio
 
 Les rapports de bugs et autres commentaires peuvent se faire soit directement depuis l'application (si vous en avez une instance qui tourne), soit [depuis le dépôt original][issues]
 
+![copie d'écran d'AGENor](doc/copieEcran-0.png "la liste des études")
+
+![une fiche étude](doc/copieEcran-1.png "la vue fiche étude")
+
 ## Installation (bonne chance!)
 *ces instructions sont largement incomplètes et feront l'objet d'amendements au fur à mesure des expériencees*
 
@@ -31,7 +35,7 @@ Le projet utilise
 
 Imaginé et construit par
 * Fouad Gafsi (DDTM Seine-Maritime)
-* Sylvain Comte (DREAL Normandie) 
+* Sylvain Comte (DREAL Normandie)
 
 ## Circuit
 * **[Framagit][origin]** ([issues][issues])
