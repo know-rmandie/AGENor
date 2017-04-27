@@ -11,7 +11,7 @@ BEGIN
 -- select * from suivi_etudes.creation_tables_budgets('suivi_etudes')
 EXECUTE'
 	DROP TABLE IF EXISTS '|| monschema ||'.liste_budgets CASCADE;
-	
+
 	CREATE TABLE '|| monschema ||'.liste_budgets
 	(
 	  id character varying,
@@ -48,6 +48,7 @@ EXECUTE'
 		(''203-10'',''IST'',''Infrastructures de transports collectifs et ferroviaires'',''SMI'',true),
 		(''203-13'',''IST'',''Soutien, régulation, contrôle et sécurité des services de transports terrestres'',''SMI'',true),
 		(''203-15'',''IST'',''Stratégie et soutien'',''SMI'',true),
+        (''205'',''SAMPA'',''Sécurité et affaires maritimes, pêche et aquaculture'',''DIRM'',false),
 		(''207'',''SR'',''Sécurité et éducation routières'',''SSTV'',false),
 		(''217'',''CPPEDMD'',''Conduite et pilotage des politiques de l''''écologie, du développement et de la mobilité durables'',''SMCAP'',false),
 		(''217-01'',''CPPDDM'',''Stratégie, expertise et études en matière de développement durable'',''SMCAP'',true),
@@ -55,7 +56,9 @@ EXECUTE'
 		(''09-PP'',''DAP CEREMA'',''Pré-Programmé'',''SMCAP'',true),
 		(''09-T9+ - ERI'',''DAP CEREMA'',''Enveloppe régionale indifférenciée (ERI)'',''SMCAP'',true),
 		(''09-T9+ - DGALN'',''DAP CEREMA'',''Enveloppe DGALN'',''SMCAP'',true),
-		(''09-T9+ - DGITM'',''DAP CEREMA'',''Enveloppe DGITM'',''SMCAP'',true);
+		(''09-T9+ - DGITM'',''DAP CEREMA'',''Enveloppe DGITM'',''SMCAP'',true),
+        (''Regie'',''Régie'',''Régie'',''tous'',false)
+        ;
 	';
 END;
 $BODY$

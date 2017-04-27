@@ -1,14 +1,11 @@
-﻿-- Function: suivi_etudes.creation_tables(text)
-
--- DROP FUNCTION suivi_etudes.creation_tables(text);
-
-CREATE OR REPLACE FUNCTION suivi_etudes.creation_tables(schema text)
+﻿-- Création des tables
+CREATE OR REPLACE FUNCTION tables(schema proprietaire delegue text)
   RETURNS void AS
 $BODY$
 DECLARE
 
 BEGIN
--- select * from suivi_etudes.creation_tables('suivi_etudes')
+    PERFORM * from suivi_etudes.creation_tables_etudes(schema proprietaire delegue);
 	PERFORM * from suivi_etudes.creation_tables_services(schema);
 	PERFORM * from suivi_etudes.creation_tables_territoires(schema);
 	PERFORM * from suivi_etudes.creation_tables_themes(schema);
